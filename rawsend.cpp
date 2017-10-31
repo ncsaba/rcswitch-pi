@@ -20,8 +20,9 @@ int main(int argc, char *argv[]) {
     if (wiringPiSetup () == -1) return 1;
     printf("sending code[%u] length[%u]\n", code, length);
     RCSwitch mySwitch = RCSwitch();
-    printf("Translated code: %s\n", mySwitch.dec2binWzerofill(code, length));
+    char* triStateCode = mySwitch.dec2binWzerofill(code, length);
+    printf("Translated code: %s\n", triStateCode);
     mySwitch.enableTransmit(PIN);
-    mySwitch.send(code, length);
+    mySwitch.sendTriState(triStateCode);
     return 0;
 }
