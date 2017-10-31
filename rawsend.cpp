@@ -19,10 +19,9 @@ int main(int argc, char *argv[]) {
     unsigned int length = atol(argv[2]);
     
     if (wiringPiSetup () == -1) return 1;
-	printf("sending code[%s] length[%i]\n", code, length);
-	RCSwitch mySwitch = RCSwitch();
-	mySwitch.enableTransmit(PIN);
-        mySwitch.send(code, length);
-    }
-	return 0;
+    printf("sending code[%s] length[%i]\n", code, length);
+    RCSwitch mySwitch = RCSwitch();
+    mySwitch.enableTransmit(PIN);
+    mySwitch.send(code, length);
+    return 0;
 }
