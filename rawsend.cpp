@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
      see https://projects.drogon.net/raspberry-pi/wiringpi/pins/
      for pin mapping of the raspberry pi GPIO connector
      */
-    int PIN = 0;
+    int PIN = 3;
     unsigned long code = atol(argv[1]);
     unsigned int length = atoi(argv[2]);
     
