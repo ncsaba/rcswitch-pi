@@ -1,6 +1,5 @@
 /*
  Usage: ./rawsend <code> <length>
- Command is 0 for OFF and 1 for ON
  */
 
 #include "RCSwitch.h"
@@ -15,11 +14,11 @@ int main(int argc, char *argv[]) {
      for pin mapping of the raspberry pi GPIO connector
      */
     int PIN = 0;
-    unsigned long code = atoll(argv[1]);
-    unsigned int length = atol(argv[2]);
+    unsigned long code = atol(argv[1]);
+    unsigned int length = atoi(argv[2]);
     
     if (wiringPiSetup () == -1) return 1;
-    printf("sending code[%s] length[%i]\n", code, length);
+    printf("sending code[%u] length[%u]\n", code, length);
     RCSwitch mySwitch = RCSwitch();
     mySwitch.enableTransmit(PIN);
     mySwitch.send(code, length);
