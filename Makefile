@@ -1,7 +1,10 @@
-all: send
+all: send rawsend
 
-send: RCSwitch.o send.o rawsend.o
+send: RCSwitch.o send.o
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $+ -o $@ -lwiringPi
+
+rawsend: RCSwitch.o rawsend.o
+        $(CXX) $(CXXFLAGS) $(LDFLAGS) $+ -o $@ -lwiringPi
 
 clean:
 	$(RM) *.o send rawsend
