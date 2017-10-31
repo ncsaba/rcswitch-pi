@@ -87,6 +87,8 @@ class RCSwitch {
 	void setProtocol(int nProtocol);
 	void setProtocol(int nProtocol, int nPulseLength);
   
+    static char* dec2binWzerofill(unsigned long dec, unsigned int length);
+
   private:
     char* getCodeWordB(int nGroupNumber, int nSwitchNumber, boolean bStatus);
     char* getCodeWordA(char* sGroup, int nSwitchNumber, boolean bStatus);
@@ -99,8 +101,6 @@ class RCSwitch {
     void sendSync();
     void transmit(int nHighPulses, int nLowPulses);
 
-    static char* dec2binWzerofill(unsigned long dec, unsigned int length);
-    
     static void handleInterrupt();
 	static bool receiveProtocol1(unsigned int changeCount);
 	static bool receiveProtocol2(unsigned int changeCount);
